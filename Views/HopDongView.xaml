@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="QLNhanSu2025.Views.HopDongView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:QLNhanSu2025.Views"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Button Content="Thêm" Command="{Binding AddHopDongCommand}" Margin="5"/>
+            <Button Content="Sửa" Command="{Binding UpdateHopDongCommand}" Margin="5"/>
+            <Button Content="Xóa" Command="{Binding DeleteHopDongCommand}" Margin="5"/>
+            <Button Content="Hủy" Command="{Binding CancelEditCommand}" Margin="5"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding HopDongs}" SelectedItem="{Binding SelectedHopDong}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã hợp đồng" Binding="{Binding MaHopDong}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Mã nhân viên" Binding="{Binding MaNhanVien}"/>
+                <DataGridTextColumn Header="Loại hợp đồng" Binding="{Binding LoaiHopDong}"/>
+                <DataGridTextColumn Header="Ngày bắt đầu" Binding="{Binding NgayBatDau, StringFormat=d}"/>
+                <DataGridTextColumn Header="Ngày kết thúc" Binding="{Binding NgayKetThuc, StringFormat=d}"/>
+                <DataGridTextColumn Header="Lương" Binding="{Binding Luong}"/>
+                <DataGridTextColumn Header="Phụ cấp" Binding="{Binding PhuCap}"/>
+                <DataGridTextColumn Header="Thưởng" Binding="{Binding Thuong}"/>
+                <!-- Thêm các cột khác -->
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
+            <TextBlock Text="Hợp đồng đã chọn: "/>
+            <TextBlock Text="{Binding SelectedHopDong.MaHopDong}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

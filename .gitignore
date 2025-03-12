@@ -1,0 +1,12 @@
+﻿# Các file build
+bin/
+obj/
+
+# Thư mục Visual Studio
+.vs/
+
+# Các file nhật ký
+*.log
+
+# Các file tạm thời
+*.tmp

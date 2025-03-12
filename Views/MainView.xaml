@@ -1,0 +1,21 @@
+﻿<Window x:Class="QLNhanSu2025.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quản Lý Nhân Sự" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left" Width="200" Background="#2C3E50">
+                <Button x:Name="btnNhanVien" Content="Nhân viên" Command="{Binding NavigateNhanVienCommand}" />
+                <Button x:Name="btnPhongBan" Content="Phòng ban" Command="{Binding NavigatePhongBanCommand}" />
+                <Button x:Name="btnViTri" Content="Vị trí" Command="{Binding NavigateViTriCommand}" />
+                <Button x:Name="btnChamCong" Content="Chấm công" Command="{Binding NavigateChamCongCommand}" />
+                <Button x:Name="btnHopDong" Content="Hợp đồng" Command="{Binding NavigateHopDongCommand}" />
+                <Button x:Name="btnNgayNghi" Content="Ngày nghỉ" Command="{Binding NavigateNgayNghiCommand}" />
+                <Button x:Name="btnLuong" Content="Lương" Command="{Binding NavigateLuongCommand}" />
+                <Button x:Name="btnBaoCao" Content="Báo cáo" Command="{Binding NavigateBaoCaoCommand}" />
+            </StackPanel>
+            <ContentControl Content="{Binding CurrentView}" DockPanel.Dock="Right" />
+        </DockPanel>
+    </Grid>
+</Window>

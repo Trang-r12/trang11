@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="QLNhanSu2025.Views.AdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:QLNhanSu2025.Views"
+             xmlns:vm="clr-namespace:QLNhanSu2025.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding WelcomeMessage}" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+
+        <!-- Ví dụ: Hiển thị danh sách người dùng -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding NguoiDungs}" AutoGenerateColumns="False" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã người dùng" Binding="{Binding MaNguoiDung}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Tên đăng nhập" Binding="{Binding TenDangNhap}"/>
+                <DataGridTextColumn Header="Vai trò" Binding="{Binding VaiTro}"/>
+                <!-- Thêm các cột khác -->
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Ví dụ: Nút để thêm người dùng mới -->
+        <Button Content="Thêm người dùng" Command="{Binding AddNguoiDungCommand}" HorizontalAlignment="Left" Margin="10"/>
+    </Grid>
+</UserControl>
